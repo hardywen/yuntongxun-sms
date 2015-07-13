@@ -1,20 +1,23 @@
 {
     "name": "hardywen/ucpaas-sms",
-    "description": "",
+    "description": "ucpaas sms 云之讯短信",
+    "keywords": ["laravel laravel4 sms ucpaas php"],
+    "license": "MIT",
+
     "authors": [
-        {
-            "name": "HardyWen",
-            "email": "hardy.wen@foxmail.com"
-        }
-    ],
-    "require": {
-        "php": ">=5.4.0",
-        "illuminate/support": "4.2.*"
-    },
-    "autoload": {
-        "psr-0": {
-            "Hardywen\\UcpaasSms": "src/"
-        }
-    },
-    "minimum-stability": "stable"
+          {
+              "name": "HardyWen",
+              "email": "hardy.wen@foxmail.com"
+          }
+      ],
+      "require": {
+          "php": ">=5.4.0",
+          "illuminate/support": "4.2.*"
+      },
+      "autoload": {
+          "psr-0": {
+              "Hardywen\\UcpaasSms": "src/"
+          }
+      },
+      "minimum-stability": "stable"
 }
