@@ -1,7 +1,7 @@
 {
-    "name": "hardywen/ucpaas-sms",
-    "description": "ucpaas sms 云之讯短信",
-    "keywords": ["laravel laravel5 sms ucpaas php"],
+    "name": "hardywen/yuntongxun-sms",
+    "description": "ucpaas sms 云通讯短信",
+    "keywords": ["laravel laravel5 sms php"],
     "license": "MIT",
 
     "authors": [
