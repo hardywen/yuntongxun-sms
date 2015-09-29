@@ -13,9 +13,9 @@ return [
 
 
     //Rest api 地址
-    'restUrl' => 'https://api.ucpaas.com',
+    'restUrl' => 'https://app.cloopen.com:8883',
 
     //Rest api 版本
-    'softVersion' => '2014-06-30',
+    'softVersion' => '2013-12-26',
 
 ];
