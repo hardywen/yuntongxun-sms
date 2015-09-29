@@ -23,7 +23,7 @@ aliases 数组里加入
 php artisan vendor:publish
 ```
 
-去 ```app/config/packages/hardywen/yuntongxun-sms/config.php``` 配置
+去 ```config/yuntongxun.php``` 配置
 
 #使用
 发送手机短信
