@@ -1,7 +1,7 @@
 {
     "name": "hardywen/ucpaas-sms",
     "description": "ucpaas sms 云之讯短信",
-    "keywords": ["laravel laravel4 sms ucpaas php"],
+    "keywords": ["laravel laravel5 sms ucpaas php"],
     "license": "MIT",
 
     "authors": [
@@ -11,7 +11,8 @@
           }
       ],
       "require": {
-          "php": ">=5.4.0"
+          "php": ">=5.5.0",
+          "laravel/framework": "5.1.*"
       },
       "autoload": {
           "psr-0": {
