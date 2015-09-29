@@ -16,7 +16,6 @@ trait HelperTrait
         $authorization = base64_encode($sid . ':' . $time);
 
         $header = array(
-            'Host:api.ucpaas.com',
             'Accept:application/json',
             'Content-Type:application/json;charset=utf-8',
             'Authorization:' . $authorization

@@ -17,14 +17,14 @@ class UcpaasSms
     public $config = [];
 
     /**
-     * 时间字符串，格式为 yyyyMMddHHmmssSSS
+     * 时间字符串，格式为 yyyyMMddHHmmss
      * @var string
      */
     public $time;
 
     function __construct($config = null)
     {
-        $this->time = substr(Carbon::now()->format('YmdHisu'), 0, -3);
+        $this->time = Carbon::now()->format('YmdHis');
 
         $this->config = Config::get('ucpaas');
     }
@@ -48,15 +48,13 @@ class UcpaasSms
     public function templateSMS($templateId, $param, $to)
     {
         $data = [
-            'templateSMS' => [
-                'appId' => $this->config['appId'],
-                'param' => $param,
-                'templateId' => $templateId,
-                'to' => $to
-            ]
+            'appId' => $this->config['appId'],
+            'datas' => $param,
+            'templateId' => $templateId,
+            'to' => $to
         ];
 
-        return $this->responsePost('Messages/templateSMS', $data);
+        return $this->responsePost('SMS/TemplateSMS', $data);
     }
 
     /**
@@ -69,15 +67,13 @@ class UcpaasSms
     public function voiceCode($verifyCode, $to, $displayNum = null)
     {
         $data = [
-            'voiceCode' => [
-                'appId' => $this->config['appId'],
-                'verifyCode' => $verifyCode,
-                'displayNum' => $displayNum,
-                'to' => $to
-            ]
+            'appId' => $this->config['appId'],
+            'verifyCode' => $verifyCode,
+            'displayNum' => $displayNum,
+            'to' => $to
         ];
 
-        return $this->responsePost('Calls/voiceCode', $data);
+        return $this->responsePost('Calls/VoiceVerify', $data);
 
     }
 }
