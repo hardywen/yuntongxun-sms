@@ -1,8 +1,8 @@
-<?php namespace Hardywen\UcpaasSms;
+<?php namespace Hardywen\YuntongxunSms;
 
 use Illuminate\Support\ServiceProvider;
 
-class UcpaasSmsServiceProvider extends ServiceProvider
+class YuntongxunSmsServiceProvider extends ServiceProvider
 {
 
     /**
@@ -19,11 +19,11 @@ class UcpaasSmsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $source = realpath(__DIR__.'/../../config/ucpaas.php');
+        $source = realpath(__DIR__.'/../../config/yuntongxun.php');
 
-        $this->publishes([$source => config_path('ucpaas.php')]);
+        $this->publishes([$source => config_path('yuntongxun.php')]);
 
-        $this->mergeConfigFrom($source, 'ucpaas');
+        $this->mergeConfigFrom($source, 'yuntongxun');
     }
 
     /**
@@ -33,8 +33,8 @@ class UcpaasSmsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['ucpaas-sms'] = $this->app->share(function ($app) {
-            return new UcpaasSms();
+        $this->app['yuntongxun-sms'] = $this->app->share(function ($app) {
+            return new YuntongxunSms();
         });
     }
 
@@ -45,7 +45,7 @@ class UcpaasSmsServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['ucpaas-sms'];
+        return ['yuntongxun-sms'];
     }
 
 }

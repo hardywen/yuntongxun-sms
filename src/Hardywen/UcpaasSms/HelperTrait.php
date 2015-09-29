@@ -1,6 +1,6 @@
 <?php
 
-namespace Hardywen\UcpaasSms;
+namespace Hardywen\YuntongxunSms;
 
 trait HelperTrait
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Hardywen\UcpaasSms;
+namespace Hardywen\YuntongxunSms;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Config;
 
-class UcpaasSms
+class YuntongxunSms
 {
 
     use HelperTrait;
@@ -26,7 +26,7 @@ class UcpaasSms
     {
         $this->time = Carbon::now()->format('YmdHis');
 
-        $this->config = Config::get('ucpaas');
+        $this->config = Config::get('yuntongxun');
     }
 
     /**

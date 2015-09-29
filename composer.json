@@ -1,6 +1,6 @@
 {
     "name": "hardywen/yuntongxun-sms",
-    "description": "ucpaas sms 云通讯短信",
+    "description": "yuntongxun sms 云通讯短信",
     "keywords": ["laravel laravel5 sms php"],
     "license": "MIT",
 
@@ -16,7 +16,7 @@
       },
       "autoload": {
           "psr-0": {
-              "Hardywen\\UcpaasSms": "src/"
+              "Hardywen\\YuntongxunSms": "src/"
           }
       },
       "minimum-stability": "stable"

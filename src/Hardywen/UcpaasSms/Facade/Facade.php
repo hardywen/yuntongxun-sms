@@ -1,8 +1,8 @@
-<?php namespace Hardywen\UcpaasSms\Facade;
+<?php namespace Hardywen\YuntongxunSms\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
-class UcpaasSms extends Facade
+class YuntongxunSms extends Facade
 {
 
     /**
@@ -12,7 +12,7 @@ class UcpaasSms extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'ucpaas-sms';
+        return 'yuntongxun-sms';
     }
 
 }
