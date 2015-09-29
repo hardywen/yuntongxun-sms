@@ -1,83 +1,51 @@
-<?php
+<?php namespace Hardywen\UcpaasSms;
 
-namespace Hardywen\UcpaasSms;
+use Illuminate\Support\ServiceProvider;
 
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Config;
-
-class UcpaasSms
+class UcpaasSmsServiceProvider extends ServiceProvider
 {
 
-    use HelperTrait;
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
 
     /**
-     * 接口配置，可以通过setConfig方法来覆盖默认配置（默认配置来自配置文件）
-     * @var array
+     * Bootstrap the application events.
+     *
+     * @return void
      */
-    public $config = [];
-
-    /**
-     * 时间字符串，格式为 yyyyMMddHHmmssSSS
-     * @var string
-     */
-    public $time;
-
-    function __construct($config = null)
+    public function boot()
     {
-        $this->time = substr(Carbon::now()->format('YmdHisu'), 0, -3);
+        $source = realpath(__DIR__.'/../../config/ucpaas.php');
 
-        $this->config = Config::get('ucpaas-sms::config');;
+        $this->publishes([$source => config_path('ucpaas.php')]);
+
+        $this->mergeConfigFrom($source, 'ucpaas');
     }
 
     /**
-     * 如果有必要可以使用此方法来覆盖默认配置
-     * @param $config array
+     * Register the service provider.
+     *
+     * @return void
      */
-    public function setConfig($config)
+    public function register()
     {
-        $this->config = array($this->config, $config);
+        $this->app['ucpaas-sms'] = $this->app->share(function ($app) {
+            return new UcpaasSms();
+        });
     }
 
     /**
-     * 短信验证码（模板短信）
-     * @param $templateId
-     * @param $param
-     * @param $to
-     * @return mixed
+     * Get the services provided by the provider.
+     *
+     * @return array
      */
-    public function templateSMS($templateId, $param, $to)
+    public function provides()
     {
-        $data = [
-            'templateSMS' => [
-                'appId' => $this->config['appId'],
-                'param' => $param,
-                'templateId' => $templateId,
-                'to' => $to
-            ]
-        ];
-
-        return $this->responsePost('Messages/templateSMS', $data);
+        return ['ucpaas-sms'];
     }
 
-    /**
-     * 语音验证码
-     * @param $verifyCode
-     * @param $to
-     * @param null $displayNum
-     * @return mixed
-     */
-    public function voiceCode($verifyCode, $to, $displayNum = null)
-    {
-        $data = [
-            'voiceCode' => [
-                'appId' => $this->config['appId'],
-                'verifyCode' => $verifyCode,
-                'displayNum' => $displayNum,
-                'to' => $to
-            ]
-        ];
-
-        return $this->responsePost('Calls/voiceCode', $data);
-
-    }
 }
