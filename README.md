@@ -28,7 +28,7 @@ php artisan vendor:publish
 #使用
 发送手机短信
 ```php
-YuntongxunSms::templateSMS('9635', '123456,3', '138xxxxxx')
+YuntongxunSms::templateSMS('9635', array('param1','param2'), '138xxxxxx')
 ```
 
 发送语音验证码
