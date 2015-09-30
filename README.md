@@ -15,7 +15,7 @@ Hardywen\YuntongxunSms\YuntongxunSmsServiceProvider::class,
 ```
 aliases 数组里加入
 ```php
-'YuntongxunSms' => Hardywen\YuntongxunSms\Facade\YuntongxunSms:class,
+'YuntongxunSms' => Hardywen\YuntongxunSms\Facade\YuntongxunSms::class,
 ```
 
 运行
