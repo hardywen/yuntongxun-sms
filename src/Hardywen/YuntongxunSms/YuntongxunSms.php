@@ -76,4 +76,63 @@ class YuntongxunSms
         return $this->responsePost('Calls/VoiceVerify', $data);
 
     }
+
+    /**
+     * 获取流量档位
+     * @param $phoneNum
+     * @return mixed
+     */
+    public function flowPackage($phoneNum)
+    {
+        $data = [
+            'phoneNum' => $phoneNum
+        ];
+
+        return $this->responsePost('flowPackage/flowPackage', $data);
+
+    }
+
+    /**
+     * 直充
+     * @param $phoneNum
+     * @param $sn 业务定制手机号
+     * @param $packet 业务定制手机号
+     * @param $customId 第三方交易id  长度不超过32为非中文、非特殊字符、要求唯一
+     * @param $callbackUrl 回调第三方的地址
+     * @param string $reason 第三方扩展参数
+     * @return mixed
+     */
+    public function flowRecharge($phoneNum, $sn, $packet, $customId, $callbackUrl, $reason = '')
+    {
+        $data = [
+            'appId' => $this->config['appId'],
+            'phoneNum' => $phoneNum,
+            'sn' => $sn,
+            'packet' => $packet,
+            'reason' => $reason,
+            'customId' => $customId,
+            'callbackUrl' => $callbackUrl,
+        ];
+
+        return $this->responsePost('flowPackage/flowRecharge', $data);
+
+    }
+
+    /**
+     * 流量充值状态查询
+     * @param $rechargeId
+     * @param null $customId
+     * @return mixed
+     */
+    public function flowRechargeStatus($rechargeId, $customId = null)
+    {
+        $data = [
+            'appId' => $this->config['appId'],
+            'rechargeId' => $rechargeId,
+            'customId' => $customId,
+        ];
+
+        return $this->responsePost('flowPackage/flowRechargeStatus', $data);
+
+    }
 }
