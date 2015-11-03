@@ -4,7 +4,7 @@
 #安装 
 在composer.json 添加 
 ```json
-hardywen/yuntongxun-sms: 'v1.0'
+hardywen/yuntongxun-sms: '~1.0'
 ```
 
 运行 ```composer update```
