@@ -19,11 +19,7 @@ class YuntongxunSmsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $source = realpath(__DIR__.'/../../config/yuntongxun.php');
-
-        $this->publishes([$source => config_path('yuntongxun.php')]);
-
-        $this->mergeConfigFrom($source, 'yuntongxun');
+        $this->package('hardywen/yuntongxun-sms');
     }
 
     /**
